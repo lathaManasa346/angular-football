@@ -19,23 +19,23 @@ export class FootBallUpdateService {
 const dateFormatted = today.toISOString().split('T')[0];
     const headers = new HttpHeaders()
       .set('x-apisports-key', '3a72e2d1c2855f68a3d83e2ff9eea7a6')
-    //  return this.httpClient.get(`${this.baseUrl}?date=${dateFormatted}`, { headers });
-    return this.httpClient.get('/assets/featureData.json');
+     return this.httpClient.get(`${this.baseUrl}?date=${dateFormatted}`, { headers });
+    // return this.httpClient.get('/assets/featureData.json');
 
   }
 
   getFootBallDataWithStandings():Observable<any>{
     const headers = new HttpHeaders()
     .set('x-apisports-key', '3a72e2d1c2855f68a3d83e2ff9eea7a6')
-//   return this.httpClient.get(`${this.apiUrl}?current=true`,{headers});
-  return this.httpClient.get('/assets/footBallAlldata.json');
+  return this.httpClient.get(`${this.apiUrl}?current=true`,{headers});
+//   return this.httpClient.get('/assets/footBallAlldata.json');
   }
 
   getIndividualCountryData(leagueId:string,season:string):Observable<any>{
     const headers = new HttpHeaders()
     .set('x-apisports-key', '3a72e2d1c2855f68a3d83e2ff9eea7a6')
-    // return this.httpClient.get(`${this.url}?league=${leagueId}&season=${season}`,{headers});
-    return this.httpClient.get('/assets/individualLeagueDetails.json')
+    return this.httpClient.get(`${this.url}?league=${leagueId}&season=${season}`,{headers});
+    // return this.httpClient.get('/assets/individualLeagueDetails.json')
   }
 
 
@@ -50,8 +50,8 @@ const dateFormatted = today.toISOString().split('T')[0];
     } else {
       throw new Error('Invalid value for "live" parameter');
     }
-    // return this.httpClient.get(url, { headers });
-    return this.httpClient.get('/assets/liveData.json')
+    return this.httpClient.get(url, { headers });
+    // return this.httpClient.get('/assets/liveData.json')
   }
  
 }
